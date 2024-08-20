@@ -8,5 +8,13 @@ pipeline {
                 sh "cd jenkinsfrontend && npm install && npm run build"
             }
         }
+        stage('Deploy Frontend'){
+            steps{
+                script{
+                    withAWS(region: 'us-east-1', credentials: 'AWS_CREDENTIALS')
+                    sh "aws sync jenkinsfrontend/dist s3://candy-inventory-management"
+                }
+            }
+        }
     }
 }
