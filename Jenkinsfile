@@ -17,6 +17,11 @@ pipeline {
                 sh "echo It works"
             }
         }
+        stage('Test GitHub Webhooks 2'){
+            steps{
+                sh "echo Playing with it"
+            }
+        }
         stage('Deploy'){
             steps{
                 sh "echo Deploying stage 3"
