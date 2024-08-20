@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy Frontend'){
             steps{
                 script{
-                    withAWS(region: 'us-east-1', credentials: 'AWS_CREDENTIALS'){
+                    withAWS(region: 'us-east-2', credentials: 'AWS_CREDENTIALS'){
                         sh "aws s3 sync jenkinsfrontend/dist s3://candy-inventory-management"
                     }
                 }
